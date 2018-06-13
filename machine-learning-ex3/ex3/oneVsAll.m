@@ -52,7 +52,7 @@ X = [ones(m, 1) X];
 initial_theta = zeros(n+1,1);
 options = optimset('GradObj', 'on', 'MaxIter', 50);
 for k = 1:size(all_theta,1)
-  fmincg(@(t)(lrCostFunction(t, X, (y == all_theta(k)), lambda)), initial_theta, options);
+  all_theta(k,:) = fmincg(@(t)(lrCostFunction(t, X, (y == k), lambda)), initial_theta, options);
 endfor 
 
 % =========================================================================
